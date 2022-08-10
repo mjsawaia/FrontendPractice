@@ -25,17 +25,65 @@
     <div class="page-container">
       <div class="header">
         <div class="header-text-container">
-          <p class="header-title">My balance</p>
-          <p class="header-amt">$921.48</p>
+          <p class="small-text">My balance</p>
+          <p class="big-text">$921.48</p>
         </div>
         <div class="header-logo">
-          <img src="images/logo.svg" alt="" />
+          <img src="images/logo.svg" alt="" height="35px" />
         </div>
       </div>
-      Spending - Last 7 days mon tue wed thu fri sat sun Total this month
-      $478.33 +2.4% from last month
+      <div class="chart">
+        <p class="big-text">Spending - Last 7 days</p>
+        <div class="bars-container">
+          <div class="bar" id="mon">
+            <p class="bar-label">mon</p>
+            <div class="bar-fill" id="mon-fill"></div>
+            <div class="bar-hover">$20</div>
+          </div>
+          <div class="bar" id="tue">
+            <p class="bar-label">tue</p>
+            <div class="bar-fill" id="tue-fill"></div>
+            <div class="bar-hover">$20</div>
+          </div>
+          <div class="bar" id="wed">
+            <p class="bar-label">wed</p>
+            <div class="bar-fill high" id="wed-fill"></div>
+            <div class="bar-hover">$20</div>
+          </div>
+          <div class="bar" id="thu">
+            <p class="bar-label">thu</p>
+            <div class="bar-fill" id="thu-fill"></div>
+            <div class="bar-hover">$20</div>
+          </div>
+          <div class="bar" id="fri">
+            <p class="bar-label">fri</p>
+            <div class="bar-fill" id="fri-fill"></div>
+            <div class="bar-hover">$20</div>
+          </div>
+          <div class="bar" id="sat">
+            <p class="bar-label">sat</p>
+            <div class="bar-fill" id="sat-fill"></div>
+            <div class="bar-hover">$20</div>
+          </div>
+          <div class="bar" id="sun">
+            <p class="bar-label">sun</p>
+            <div class="bar-fill" id="sun-fill"></div>
+            <div class="bar-hover">$20</div>
+          </div>
+        </div>
+        <div class="chart-footer">
+          <div class="chart-footer-left">
+            <p class="small-text">Total this month</p>
+            <p class="big-text">$478.33</p>
+          </div>
+          <div class="chart-footer-right">
+            <p class="big-text">+2.4%</p>
+            <p class="small-text">from last month</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
