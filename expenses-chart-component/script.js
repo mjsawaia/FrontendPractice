@@ -1,11 +1,3 @@
-const monEl = document.querySelector("#mon");
-const tueEl = document.querySelector("#tue");
-const wedEl = document.querySelector("#wed");
-const thuEl = document.querySelector("#thu");
-const friEl = document.querySelector("#fri");
-const satEl = document.querySelector("#sat");
-const sunEl = document.querySelector("#sun");
-
 const getData = async () => {
   const response = await fetch("./data.json");
   const data = await response.json();
@@ -13,18 +5,39 @@ const getData = async () => {
 };
 
 const getHighDay = () => {
-  let highAmt = 0;
-  let highDay = "";
   spendingData.forEach((element) => {
     if (element.amount > highAmt) {
       highAmt = element.amount;
       highDay = element.day;
     }
   });
-  return highDay;
 };
 
-const renderGraph = () => {};
+const renderGraph = () => {
+  spendingData.forEach((element) => {
+    const domEl = document.querySelector(`#${element.day}`);
+    const barFill = domEl.querySelector(".bar-fill");
+    const barHover = domEl.querySelector(".bar-hover");
+    if (element.day === highDay) {
+      barFill.classList.add("high");
+      barFill.style.height = "65%";
+    } else {
+      barFill.style.height = `${(element.amount / highAmt) * 65}%`;
+    }
+    barHover.textContent = `$${element.amount}`;
+    barFill.onmouseover = () => {
+      barHover.style.display = "block";
+      barFill.style.filter = "brightness(125%)";
+    };
+    barFill.onmouseout = () => {
+      barHover.style.display = "none";
+      barFill.style.filter = "brightness(100%)";
+    };
+  });
+};
 
+let highAmt = 0;
+let highDay = "";
 const spendingData = await getData();
-const highDay = getHighDay();
+getHighDay();
+renderGraph();

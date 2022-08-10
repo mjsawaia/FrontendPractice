@@ -102,7 +102,7 @@ body {
   padding: 0.35rem;
   margin-bottom: 0.25rem;
   text-align: center;
-  display: block;
+  display: none;
 }
 
 .high {
